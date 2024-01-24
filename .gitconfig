@@ -1,0 +1,20 @@
+[user]
+    name =
+    email =
+[core]
+    editor = nvim
+[alias]
+    st = status
+    co = checkout
+    sw = switch
+    save = !git add -A && git commit -m
+    amend = !git add -A && commit --amend --no-edit
+    undo = reset HEAD~1 --mixed
+    br = branch --format='%(HEAD) %(color:yellow)%(refname:short)%(color:reset) - %(color:green)%(committerdate:short) %(color:blue)%(authorname)%(color:reset) %(contents:subject)' --sort=-committerdate
+    last = log -1 HEAD --stat
+    lol = log --graph --pretty=format:'%C(red)%h%C(reset) -%C(auto)%d%C(reset) %s %C(green)(%ar) %C(bold blue)<%an>%C(reset)' --abbrev-commit
+    glog = log --graph --pretty=format:'%C(red)%h %C(green)%ad %C(blue)%aN%C(auto)%d %C(reset)%s' --date=short --all
+    rdiff = !git fetch && git log @{u}..HEAD
+    alias = config --get-regexp 'alias'
+[pager]
+    log = less -+$LESS -MRF
