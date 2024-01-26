@@ -3,12 +3,23 @@
     email =
 [core]
     editor = nvim
+    whitespace = fix,trailing-space,tab-in-indent,-indent-with-non-tab,cr-at-eol
+    pager = delta
+[interactive]
+    diffFilter = delta --color-only
+[delta]
+    navigate = true    # use n and N to move between diff sections
+    light = false      # set to true if you're in a terminal w/ a light background color (e.g. the default macOS terminal)
+[merge]
+    conflictstyle = diff3
+[diff]
+    colorMoved = default
 [alias]
     st = status
     co = checkout
     sw = switch
     save = !git add -A && git commit -m
-    amend = !git add -A && commit --amend --no-edit
+    amend = !git add -A && git commit --amend --no-edit
     undo = reset HEAD~1 --mixed
     br = branch --format='%(HEAD) %(color:yellow)%(refname:short)%(color:reset) - %(color:green)%(committerdate:short) %(color:blue)%(authorname)%(color:reset) %(contents:subject)' --sort=-committerdate
     last = log -1 HEAD --stat
@@ -16,5 +27,5 @@
     glog = log --graph --pretty=format:'%C(red)%h %C(green)%ad %C(blue)%aN%C(auto)%d %C(reset)%s' --date=short --all
     rdiff = !git fetch && git log @{u}..HEAD
     alias = config --get-regexp 'alias'
-[pager]
-    log = less -+$LESS -MRF
+#[pager]
+#    log = less -+$LESS -MRF
